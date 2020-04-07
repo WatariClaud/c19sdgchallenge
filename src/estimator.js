@@ -20,15 +20,21 @@ const covid19ImpactEstimator = (data) => {
     severeImpact: {}
   };
 
-  let impactInfected = outputData.impact.currentlyInfected;
-  let severeInfected = outputData.severeImpact.currentlyInfected;
-  impactInfected = inputData.reportedCases * 10;
-  severeInfected = inputData.reportedCases * 50;
+  const calculateEstimatedInfections = () => {
+    let impactInfected = outputData.impact.currentlyInfected;
+    let severeInfected = outputData.severeImpact.currentlyInfected;
+    impactInfected = inputData.reportedCases * 10;
+    severeInfected = inputData.reportedCases * 50;
+    outputData.impact.infectionsByRequestedTimeDays = impactInfected * 1024;
+    outputData.severeImpact.infectionsByRequestedTimeDays = severeInfected * 1024;
+    outputData.impact.infectionsByRequestedTimeWeeks = outputData.impact.infectionsByRequestedTimeDays * 7;
+    outputData.severeImpact.infectionsByRequestedTimeWeeks = outputData.severeImpact.infectionsByRequestedTimeDays * 7;
+    outputData.impact.infectionsByRequestedTimeMonths= outputData.impact.infectionsByRequestedTimeWeeks * 4;
+    outputData.severeImpact.infectionsByRequestedTimeMonths= outputData.severeImpact.infectionsByRequestedTimeWeeks* 4;
 
-  outputData.impact.infectionsByRequestedTime = impactInfected * 1024;
-  outputData.severeImpact.infectionsByRequestedTime = severeInfected * 1024;
-
-  return outputData;
+    return outputData;
+  };
+  calculateEstimatedInfections();
 };
 
 export default covid19ImpactEstimator;
