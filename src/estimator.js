@@ -12,7 +12,7 @@ const covid19ImpactEstimator = (data) => {
     population: 66622705,
     totalHospitalBeds: 1380614
   };
-  data.inputData = inputData
+  data.inputData = inputData;
 
   const outputData = {
     data,
@@ -25,10 +25,8 @@ const covid19ImpactEstimator = (data) => {
   impactInfected = inputData.reportedCases * 10;
   severeInfected = inputData.reportedCases * 50;
 
-  let impactInfectionsByTime = outputData.impact.infectionsByRequestedTime;
-  let severeInfectionsByTime = outputData.severeImpact.infectionsByRequestedTime;
-  impactInfectionsByTime = impactInfected * 1024;
-  severeInfectionsByTime = severeInfected * 1024;
+  outputData.impact.infectionsByRequestedTime = impactInfected * 1024;
+  outputData.severeImpact.infectionsByRequestedTime = severeInfected * 1024;
 
   return outputData;
 };
