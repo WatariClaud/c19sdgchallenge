@@ -26,16 +26,13 @@ const estimateExpectedToBeInfected = () => {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const estimator = ({
+  const estimator = {
+    data,
     estimateCurrentlyInfected,
     estimateExpectedToBeInfected
-  });
+  };
 
-  return estimator({
-    data,
-    impact: {},
-    severeImpact: {}
-  });
+  return estimator;
 };
 
 export default covid19ImpactEstimator;
