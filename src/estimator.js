@@ -11,8 +11,8 @@ const input = {
   population: 66622705,
   totalHospitalBeds: 1380614
 };
-let impact = {};
-let severeImpact = {};
+const impact = {};
+const severeImpact = {};
 
 const estimateCurrentlyInfected = () => {
   impact.currentlyInfected = input.reportedCases * 10;
@@ -26,15 +26,15 @@ const estimateExpectedToBeInfected = () => {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const estimator = chain (
+  const estimator = ({
     estimateCurrentlyInfected,
-    estimateExpectedToBeInfected,
-  );
+    estimateExpectedToBeInfected
+  });
 
   return estimator({
-      data,
-      impact: {},
-      severeImpact: {}
+    data,
+    impact: {},
+    severeImpact: {}
   });
 };
 
