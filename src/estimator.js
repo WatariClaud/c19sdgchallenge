@@ -1,4 +1,4 @@
-const input = {
+const data = {
   region: {
     name: 'Africa',
     avgAge: 19.7,
@@ -15,12 +15,12 @@ const impact = {};
 const severeImpact = {};
 
 const estimateCurrentlyInfected = () => {
-  impact.currentlyInfected = input.reportedCases * 10;
+  impact.currentlyInfected = data.reportedCases * 10;
   impact.infectionsByRequestedTime = impact.currentlyInfected * 1024;
   return impact;
 };
 const estimateExpectedToBeInfected = () => {
-  severeImpact.currentlyInfected = input.reportedCases * 50;
+  severeImpact.currentlyInfected = data.reportedCases * 50;
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 1024;
   return severeImpact;
 };
