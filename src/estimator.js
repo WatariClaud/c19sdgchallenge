@@ -27,7 +27,7 @@ const estimateExpectedToBeInfected = () => {
 
 const covid19ImpactEstimator = (data) => {
   const estimator = {
-    data,
+    data: input,
     estimateCurrentlyInfected,
     estimateExpectedToBeInfected
   };
